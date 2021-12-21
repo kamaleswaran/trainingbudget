@@ -27,6 +27,10 @@ let spentAmountSubmit = document.getElementById("spentAmountSubmit");
 spentAmountSubmit.addEventListener("click", async () => {
   let spentAmount = parseFloat(document.getElementById("spentAmount").value);
   
+  if (remainingBudget - spentAmount < 0) {
+    return;
+  }
+
   remainingBudget -= spentAmount;
 
   document.getElementById("trainingBudget").textContent = remainingBudget.toFixed(2);
@@ -38,6 +42,10 @@ let spentDaysSubmit = document.getElementById("spentDaysSubmit");
 spentDaysSubmit.addEventListener("click", async () => {
   let spentDays = parseFloat(document.getElementById("spentDays").value);
   
+  if (remainingDays - spentDays < 0) {
+    return;
+  }
+
   remainingDays -= spentDays;
 
   document.getElementById("trainingDays").textContent = remainingDays.toFixed(2);
