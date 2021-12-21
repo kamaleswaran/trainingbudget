@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+		<title>Training Budget Info</title>
+	</head>
+	
+	<body style="width: 600px; padding: 10px 10px;">
+    <div style="margin-left: 10px">
+      <h1>Training Budget Info</h1>
+
+      <div style="margin-top: 20px;">
+        <button id="reset" style="color:#003D4F;">Reset training budget</button>
+      </div>
+
+      <div style="margin-top: 20px;">
+        Remaining Training Budget = <span id="trainingBudget"></span>
+      </div>
+
+      <div style="margin-top: 20px;">
+        Remaining Training Days = <span id="trainingDays"></span>
+      </div>
+      
+      <div style="margin-top: 20px;">
+        <input id="spentAmount" type="text" placeholder="10.50" />
+        <input style="color: #003D4F" id="spentAmountSubmit" type="button" value="Amount Spent" />
+      </div>
+
+      <div style="margin-top: 20px;">
+        <input id="spentDays" type="text" placeholder="1" />
+        <input style="color: #003D4F" id="spentDaysSubmit" type="button" value="Number of days used" />
+      </div>
+
+      <div style="margin-top: 20px;">
+        <a target="_blank" href="https://www.expensify.com/report">Take me to Expensify for more detailed version</a>
+      </div>
+
+    </div>
+    
+    <script src="popup.js"></script>  
+	</body>
+</html>

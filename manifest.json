@@ -1,0 +1,29 @@
+{
+    "name": "Training Budget",
+    "description": "Build an Extension!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["storage"],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {                    
+			"19": "img/icon48.png",
+			"38": "img/icon48.png"
+		}
+    },
+    "icons": { 
+		"16": "img/icon16.png",
+		"48": "img/icon48.png",
+		"128": "img/icon128.png"
+	},
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    },
+    "web_accessible_resources": [{ 
+        "resources": ["/images/icon128.png"],
+        "matches": ["<all_urls>"]
+      }]
+  }
