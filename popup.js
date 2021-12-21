@@ -2,19 +2,22 @@ let remainingBudget = 0.0;
 let remainingDays = 0.0;
 
 chrome.storage.local.get("trainingBudget", ({ trainingBudget }) => {
-  document.getElementById("trainingBudget").textContent = trainingBudget;
-  remainingBudget = parseFloat(trainingBudget);
+  document.getElementById("trainingBudget").textContent = trainingBudget ?? 1000;
+  remainingBudget = parseFloat(trainingBudget ?? 1000);
 });
 
 chrome.storage.local.get("trainingDays", ({ trainingDays }) => {
-  document.getElementById("trainingDays").textContent = trainingDays;
-  remainingDays = parseFloat(trainingDays);
+  document.getElementById("trainingDays").textContent = trainingDays ?? 2;
+  remainingDays = parseFloat(trainingDays ?? 2);
 });
 
 chrome.storage.local.get("lastSpentAmountNotes", ({ lastSpentAmountNotes }) => {
   document.getElementById("lastSpentAmountNotes").textContent = lastSpentAmountNotes;
 });
 
+chrome.storage.local.get("lastSpentDaysNotes", ({ lastSpentDaysNotes }) => {
+  document.getElementById("lastSpentDaysNotes").textContent = lastSpentDaysNotes;
+});
 
 let reset = document.getElementById("reset");
 reset.addEventListener("click", async () => {
