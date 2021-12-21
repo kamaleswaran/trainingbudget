@@ -52,6 +52,9 @@ spentAmountSubmit.addEventListener("click", async () => {
   let lastSpentAmountNotes = spentAmountNotes + ' for £' + spentAmount + '/-';
   document.getElementById("lastSpentAmountNotes").textContent = lastSpentAmountNotes;
   chrome.storage.local.set({ trainingBudget: remainingBudget, lastSpentAmountNotes: lastSpentAmountNotes });
+
+  document.getElementById("spentAmountNotes").value = '';
+  document.getElementById("spentAmount").value = '';
 });
 
 let spentDaysSubmit = document.getElementById("spentDaysSubmit");
@@ -71,4 +74,7 @@ spentDaysSubmit.addEventListener("click", async () => {
   document.getElementById("lastSpentDaysNotes").textContent = lastSpentDaysNotes;
   
   chrome.storage.local.set({ trainingDays: remainingDays, lastSpentDaysNotes: lastSpentDaysNotes });
+
+  document.getElementById("spentDaysNotes").value = '';
+  document.getElementById("spentDays").value = '';
 });
