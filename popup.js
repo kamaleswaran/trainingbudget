@@ -11,6 +11,10 @@ chrome.storage.local.get("trainingDays", ({ trainingDays }) => {
   remainingDays = parseFloat(trainingDays);
 });
 
+chrome.storage.local.get("lastSpentAmountNotes", ({ lastSpentAmountNotes }) => {
+  document.getElementById("lastSpentAmountNotes").textContent = lastSpentAmountNotes;
+});
+
 
 let reset = document.getElementById("reset");
 reset.addEventListener("click", async () => {
@@ -21,10 +25,14 @@ reset.addEventListener("click", async () => {
   document.getElementById("trainingDays").textContent = 2;
   chrome.storage.local.set({ trainingDays: 2 });
   remainingDays = 2;
+
+  document.getElementById("lastSpentAmountNotes").textContent = '';
+  chrome.storage.local.set({ lastSpentAmountNotes: '' });
 });
 
 let spentAmountSubmit = document.getElementById("spentAmountSubmit");
 spentAmountSubmit.addEventListener("click", async () => {
+  let spentAmountNotes = document.getElementById("spentAmountNotes").value;
   let spentAmount = parseFloat(document.getElementById("spentAmount").value);
   
   if (remainingBudget - spentAmount < 0) {
@@ -35,7 +43,9 @@ spentAmountSubmit.addEventListener("click", async () => {
 
   document.getElementById("trainingBudget").textContent = remainingBudget.toFixed(2);
   
-  chrome.storage.local.set({ trainingBudget: remainingBudget });
+  let lastSpentAmountNotes = spentAmountNotes + ' for £' + spentAmount + '/-';
+  document.getElementById("lastSpentAmountNotes").textContent = lastSpentAmountNotes;
+  chrome.storage.local.set({ trainingBudget: remainingBudget, lastSpentAmountNotes: lastSpentAmountNotes });
 });
 
 let spentDaysSubmit = document.getElementById("spentDaysSubmit");
